@@ -1,10 +1,169 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My GitHub Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex for Windows</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f5f5;
+            color: #1f1f1f;
+        }
+
+        .header {
+            background: #111111;
+            color: white;
+            padding: 18px 0;
+        }
+
+        .header-inner {
+            width: 900px;
+            max-width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .version {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .container {
+            width: 900px;
+            max-width: 90%;
+            margin: 70px auto;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 45px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .requirements {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f7f7f7;
+            border-radius: 6px;
+        }
+
+        .requirements h3 {
+            margin-top: 0;
+        }
+
+        .requirements li {
+            margin: 8px 0;
+        }
+
+        .download {
+            margin-top: 35px;
+            display: inline-block;
+            background: #111;
+            color: white;
+            padding: 14px 26px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .download:hover {
+            background: #333;
+        }
+
+        .notice {
+            margin-top: 18px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello World!</h1>
-    <p>Welcome to my GitHub Pages website.</p>
+
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">Codex</div>
+        <div class="version">Windows Edition · v1.4.2</div>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="card">
+
+        <h1>Codex for Windows</h1>
+
+        <p class="subtitle">
+            Install Codex on your Windows workstation and start building,
+            testing, and managing your development projects.
+        </p>
+
+        <div class="requirements">
+            <h3>System requirements</h3>
+
+            <ul>
+                <li>Windows 10 or Windows 11</li>
+                <li>64-bit processor</li>
+                <li>4 GB RAM minimum</li>
+                <li>500 MB available disk space</li>
+                <li>Internet connection</li>
+            </ul>
+        </div>
+
+        <!-- Benign placeholder for a security training challenge -->
+        <a class="download"
+           href="download.html">
+            Download Codex for Windows
+        </a>
+
+        <div class="notice">
+            Version 1.4.2 · Windows x64
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Codex — Fictional security training page
+    </footer>
+
+</main>
+
 </body>
 </html>
+```
